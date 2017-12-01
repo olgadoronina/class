@@ -1,0 +1,44 @@
+\documentclass[letterpaper,12pt,fleqn, twocolumn]{article}
+
+\usepackage{amssymb, amsmath, mathtools}
+\usepackage{caption, url, placeins, graphicx, subfigure, multirow, bm} 
+\usepackage{float}  % для картинок 
+%\usepackage{mathabx}
+\usepackage{hyperref}
+\mathtoolsset{showonlyrefs=true}                        % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+\graphicspath{}
+%%%ФОРМАТИРОВАНИЕ СТРАНИЦЫ
+%\usepackage{geometry}                   % Меняем поля страницы
+%\geometry{left=10mm}                    % левое поле
+%\geometry{right=10mm}                   % правое поле
+%\geometry{top=10mm}                     % верхнее поле
+%\geometry{bottom=15mm}                  % нижнее поле
+\usepackage{setspace}                   % Позволяет менять межстрочные интервалы в тексте
+\onehalfspacing                         % полуторный интервал для всего текста
+\usepackage{enumerate}
+\usepackage{import}
+\bibliographystyle{aiaa}
+\newcommand*\mean[1]{\overline{#1}}
+\newcommand*{\erf}{\operatorname {erf}}
+\newcommand*\code[1]{\lstinline{#1}}
+\newcommand*\wtilde[1]{\widetilde{#1}}
+\title{Project proposal:\\
+Direct Numerical Simulation of turbulent flow in a channel with a bump }
+\author{Olga Doronina}
+\begin{document}
+\maketitle
+
+Direct Numerical Simulations (DNS) allows us to simulate a spatially and temporally resolved turbulent flow and preserve all physical effects down to the smallest scales. A high accuracy of simulation without numerical diffusion or dispersion can be reached by using spectral numerical methods. Thus, a spectral Fourier decomposition in all three spatial directions can be used for isotropic homogeneous turbulence simulation, where  all boundaries can be defined as peroidic boundary conditions. However, for more complicated types of flow, such as channel flow, we cannot use Fourier decomposition in all directions. Thus we have to use other spectral methods, which can account for the wall boundary conditions. The most common approach in this case is Chebyshev polynomials in the wall-normal direction. 
+ 
+A classical high-performance pseudo-spectral Navier-Stokes DNS solver, spectralDNS~\cite{mortensen_high_2016}, has been developed by M. Mortensen and H. P. Langtangen for a channel flow solver using the Shen basis~\cite{mortensen_spectral-galerkin_2017}. The spectralDNS code is publicly available at Github (\url{https://github.com/spectralDNS/spectralDNS}).  
+
+However, flows with more complicated geometry, such as a channel flow with a bump, can have a more practical interest. Such changes in geometry can be reached with a coordinate transformation. The wall curvature of this case introduces an additional pressure gradient and it can be interesting to consider this problem from numerical point of view because of the high pressure gradients, which are usually hard to resolve numerically.  
+
+In my project I will develop an algorithm to simulate the flow in a channel with a bump. The algorithm will use spectralDNS code  and will introduce coordinate transformations. The numerical performance will be studied with comparison to a standard channel flow solver.
+
+
+
+
+
+\bibliography{references} \bibliographystyle{aiaa}
+\end{document} 
